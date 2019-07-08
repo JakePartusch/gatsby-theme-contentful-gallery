@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "@emotion/styled";
 import PostContent from "./post-content";
 import PostImages from "./post-images";
@@ -26,15 +26,10 @@ const Card = styled.div({
 });
 
 const Post = ({ post }) => {
-  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   return (
     <PostContainer>
       <Card>
-        <PostImages
-          post={post}
-          selectedImageIndex={selectedImageIndex}
-          setSelectedImageIndex={setSelectedImageIndex}
-        />
+        <PostImages post={post} />
         <PostContent post={post} />
       </Card>
     </PostContainer>

@@ -1,7 +1,7 @@
 {
   "name": "@jakepartusch/gatsby-theme-contentful-gallery",
   "description": "A gatsby theme to create a gallery with Contentful",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "author": "Jake Partusch <jakepartusch@gmail.com>",
   "main": "index.js",
   "dependencies": {

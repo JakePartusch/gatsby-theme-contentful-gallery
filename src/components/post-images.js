@@ -29,25 +29,36 @@ const Dot = styled.div(({ selected }) => ({
   backgroundColor: selected ? "#1976d2" : "rgba(0, 0, 0, 0.26)"
 }));
 
-const PostImages = ({ post, selectedImageIndex, setSelectedImageIndex }) => {
-  return (
-    <div>
-      <BindKeyboardSwipeableViews
-        onChangeIndex={index => setSelectedImageIndex(index)}
-      >
-        {post.coverImages.map((image, i) => (
-          <CardImage selected={selectedImageIndex === i} fluid={image.fluid} />
-        ))}
-      </BindKeyboardSwipeableViews>
-      {post.coverImages.length > 1 && (
-        <Dots>
+class PostImages extends React.Component {
+  state = {
+    selectedImageIndex: 0
+  };
+
+  render() {
+    const { selectedImageIndex } = this.state;
+    const { post } = this.props;
+    return (
+      <div>
+        <BindKeyboardSwipeableViews
+          onChangeIndex={index => this.setState({ selectedImageIndex: index })}
+        >
           {post.coverImages.map((image, i) => (
-            <Dot selected={selectedImageIndex === i} />
+            <CardImage
+              selected={selectedImageIndex === i}
+              fluid={image.fluid}
+            />
           ))}
-        </Dots>
-      )}
-    </div>
-  );
-};
+        </BindKeyboardSwipeableViews>
+        {post.coverImages.length > 1 && (
+          <Dots>
+            {post.coverImages.map((image, i) => (
+              <Dot selected={selectedImageIndex === i} />
+            ))}
+          </Dots>
+        )}
+      </div>
+    );
+  }
+}
 
 export default PostImages;
