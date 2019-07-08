@@ -1,8 +1,10 @@
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
-  const blogPostTemplate = require.resolve(`./src/templates/post.js`);
+  const PostTemplate = require.resolve(`./src/templates/post.js`);
+  const PostsTemplate = require.resolve(`./src/templates/posts.js`);
+
   const result = await graphql(`
-    query AllPosts {
+    query {
       allContentfulPost(sort: { fields: publishDate, order: DESC }) {
         edges {
           node {
@@ -34,13 +36,22 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   const posts = result.data.allContentfulPost.edges;
   // Create post pages.
-  posts.forEach(edge => {
+  posts.forEach(post => {
     createPage({
-      path: `/posts/${edge.node.id}`,
-      component: blogPostTemplate,
+      path: `/posts/${post.node.id}`,
+      component: PostTemplate,
       context: {
-        post: edge.node
+        post: post.node
       }
     });
+  });
+
+  // Create index page
+  createPage({
+    path: "/",
+    component: PostsTemplate,
+    context: {
+      posts
+    }
   });
 };

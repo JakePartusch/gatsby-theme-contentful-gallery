@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery, graphql, Link } from "gatsby";
+import { Link } from "gatsby";
 import Img from "gatsby-image";
 import styled from "@emotion/styled";
 
@@ -20,27 +20,10 @@ const SquareImage = styled(Img)({
   }
 });
 
-const PostGrid = () => {
-  const data = useStaticQuery(graphql`
-    query {
-      allContentfulPost(sort: { fields: publishDate, order: DESC }) {
-        edges {
-          node {
-            id
-            coverImages {
-              fluid(maxWidth: 600, maxHeight: 600) {
-                ...GatsbyContentfulFluid
-              }
-            }
-            shortDescription
-          }
-        }
-      }
-    }
-  `);
+const PostGrid = ({ posts }) => {
   return (
     <Grid>
-      {data.allContentfulPost.edges.map(post => (
+      {posts.map(post => (
         <Link to={`/posts/${post.node.id}`}>
           <SquareImage fluid={post.node.coverImages[0].fluid} />
         </Link>

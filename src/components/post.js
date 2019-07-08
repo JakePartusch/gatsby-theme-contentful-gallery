@@ -1,7 +1,7 @@
-import React from "react"
-import styled from "@emotion/styled"
-import PostContent from "./post-content"
-import PostImages from "./post-images"
+import React, { useState } from "react";
+import styled from "@emotion/styled";
+import PostContent from "./post-content";
+import PostImages from "./post-images";
 
 const PostContainer = styled.div({
   maxWidth: 600,
@@ -9,9 +9,9 @@ const PostContainer = styled.div({
   display: "flex",
   minHeight: "100vh",
   "@media(min-width:960px)": {
-    alignItems: "center",
-  },
-})
+    alignItems: "center"
+  }
+});
 
 const Card = styled.div({
   display: "flex",
@@ -21,19 +21,24 @@ const Card = styled.div({
   boxShadow:
     "0px 1px 3px 0px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 2px 1px -1px rgba(0,0,0,0.12)",
   "@media (max-width:960px)": {
-    boxShadow: "none",
-  },
-})
+    boxShadow: "none"
+  }
+});
 
 const Post = ({ post }) => {
+  const [selectedImageIndex, setSelectedImageIndex] = useState(0);
   return (
     <PostContainer>
       <Card>
-        <PostImages post={post} />
+        <PostImages
+          post={post}
+          selectedImageIndex={selectedImageIndex}
+          setSelectedImageIndex={setSelectedImageIndex}
+        />
         <PostContent post={post} />
       </Card>
     </PostContainer>
-  )
-}
+  );
+};
 
-export default Post
+export default Post;

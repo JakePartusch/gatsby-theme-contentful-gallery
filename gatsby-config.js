@@ -16,13 +16,7 @@ module.exports = options => {
       },
       `gatsby-transformer-sharp`,
       `gatsby-transformer-remark`,
-      `gatsby-plugin-sharp`,
-      {
-        resolve: `gatsby-plugin-typography`,
-        options: {
-          pathToConfigModule: `src/utils/typography`
-        }
-      }
+      `gatsby-plugin-sharp`
     ]
   };
 };
