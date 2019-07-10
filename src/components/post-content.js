@@ -1,40 +1,43 @@
-import React from "react"
-import styled from "@emotion/styled"
-
-const Header = styled.h1({
-  fontSize: "2rem",
-  color: "rgb(0,0,0,0.75)",
-  textAlign: "center",
-  margin: 0,
-})
-
-const PublishDate = styled.div({
-  color: "rgb(0,0,0,0.75)",
-  textAlign: "center",
-  marginTop: "0.5rem",
-})
-
-const Body = styled.div({
-  margin: "0.5rem 1rem",
-  textAlign: "center",
-})
+import React from "react";
+import styled from "@emotion/styled";
+import { css, Styled } from "theme-ui";
 
 const CardContent = styled.div({
   padding: "0.5rem",
-  flex: "1",
-})
+  flex: "1"
+});
 
 const PostContent = ({ post }) => {
   const bodyContent = {
-    __html: post.body.childMarkdownRemark.html,
-  }
+    __html: post.body.childMarkdownRemark.html
+  };
   return (
     <CardContent>
-      <Header>{post.shortDescription}</Header>
-      <PublishDate>{new Date(post.publishDate).toDateString()}</PublishDate>
-      <Body dangerouslySetInnerHTML={bodyContent} />
+      <Styled.h1
+        css={css({
+          textAlign: "center",
+          margin: 0
+        })}
+      >
+        {post.shortDescription}
+      </Styled.h1>
+      <Styled.p
+        css={css({
+          textAlign: "center",
+          marginTop: "0.5rem"
+        })}
+      >
+        {new Date(post.publishDate).toDateString()}
+      </Styled.p>
+      <Styled.p
+        css={css({
+          margin: "0.5rem 1rem",
+          textAlign: "center"
+        })}
+        dangerouslySetInnerHTML={bodyContent}
+      />
     </CardContent>
-  )
-}
+  );
+};
 
-export default PostContent
+export default PostContent;

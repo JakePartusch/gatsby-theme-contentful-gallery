@@ -20,13 +20,17 @@ const SquareImage = styled(Img)({
   }
 });
 
+const StyledLink = styled(Link)({
+  backgroundImage: "none"
+});
+
 const PostGrid = ({ posts }) => {
   return (
     <Grid>
       {posts.map(post => (
-        <Link to={`/posts/${post.node.id}`}>
+        <StyledLink to={`/posts/${post.node.id}`}>
           <SquareImage fluid={post.node.coverImages[0].fluid} />
-        </Link>
+        </StyledLink>
       ))}
     </Grid>
   );

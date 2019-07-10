@@ -16,7 +16,9 @@ module.exports = options => {
       },
       `gatsby-transformer-sharp`,
       `gatsby-transformer-remark`,
-      `gatsby-plugin-sharp`
+      `gatsby-plugin-sharp`,
+      `gatsby-plugin-emotion`,
+      `gatsby-plugin-theme-ui`
     ]
   };
 };

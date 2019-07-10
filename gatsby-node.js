@@ -1,3 +1,9 @@
+let basePath;
+
+exports.onPreBootstrap = themeOptions => {
+  basePath = themeOptions.basePath || `/`;
+};
+
 exports.createPages = async ({ graphql, actions, reporter }) => {
   const { createPage } = actions;
   const PostTemplate = require.resolve(`./src/templates/post.js`);
@@ -48,7 +54,7 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
 
   // Create index page
   createPage({
-    path: "/",
+    path: basePath,
     component: PostsTemplate,
     context: {
       posts

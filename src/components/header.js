@@ -2,6 +2,7 @@ import React from "react";
 import styled from "@emotion/styled";
 import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
+import { css, Styled } from "theme-ui";
 
 const Avatar = styled(Img)({
   width: 150,
@@ -20,22 +21,6 @@ const Container = styled.div({
   padding: "1rem 0",
   margin: "1rem 0",
   borderBottom: "solid thin rgb(239,239,239)"
-});
-
-const Content = styled.div({
-  marginLeft: "2rem"
-});
-
-const User = styled.h1({
-  fontWeight: 300,
-  fontSize: "1.5rem",
-  margin: 0
-});
-
-const Tagline = styled.p({
-  fontWeight: 200,
-  color: "rgb(0,0,0,0.75)",
-  margin: "0.25rem 0"
 });
 
 const Header = () => {
@@ -65,10 +50,23 @@ const Header = () => {
   return (
     <Container>
       <Avatar fluid={user.avatar.fluid} />
-      <Content>
-        <User>{`${user.firstName} ${user.lastName}`}</User>
-        <Tagline>{user.tagLine}</Tagline>
-      </Content>
+      <Styled.div css={css({ marginLeft: "2rem" })}>
+        <Styled.h1
+          css={css({
+            fontWeight: 300,
+            fontSize: "1.75rem",
+            margin: 0
+          })}
+        >{`${user.firstName} ${user.lastName}`}</Styled.h1>
+        <Styled.p
+          css={css({
+            fontWeight: 200,
+            margin: "0.25rem 0"
+          })}
+        >
+          {user.tagLine}
+        </Styled.p>
+      </Styled.div>
     </Container>
   );
 };
