@@ -53,14 +53,11 @@ const Header = () => {
       <Styled.div css={css({ marginLeft: "2rem" })}>
         <Styled.h1
           css={css({
-            fontWeight: 300,
-            fontSize: "1.75rem",
             margin: 0
           })}
         >{`${user.firstName} ${user.lastName}`}</Styled.h1>
         <Styled.p
           css={css({
-            fontWeight: 200,
             margin: "0.25rem 0"
           })}
         >

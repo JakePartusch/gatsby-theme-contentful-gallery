@@ -1,30 +1,24 @@
 export default {
   root: {
-    fontFamily: `body`
+    fontFamily: "body",
+    fontWeight: "body",
+    lineHeight: "body"
   },
-  // from typography overrideThemeStyles
-  a: {
-    color: `primary`
+  body: {
+    margin: 0,
+    backgroundColor: "background"
   },
-  hr: {
-    borderColor: `muted`
+  h1: {
+    fontFamily: "heading",
+    fontWeight: 500,
+    fontSize: "1.5rem",
+    color: "text",
+    lineHeight: "heading"
   },
   p: {
-    code: {
-      fontSize: `inherit`
-    }
-  },
-  li: {
-    code: {
-      fontSize: `inherit`
-    }
-  },
-  blockquote: {
-    color: `inherit`,
-    borderLeftColor: `inherit`,
-    opacity: 0.8,
-    "&.translation": {
-      fontSize: `1em`
-    }
+    fontFamily: "body",
+    fontWeight: 400,
+    color: "text",
+    lineHeight: "body"
   }
 };
