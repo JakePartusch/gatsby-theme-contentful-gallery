@@ -4,6 +4,10 @@
   "version": "0.0.9",
   "author": "Jake Partusch <jakepartusch@gmail.com>",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/JakePartusch/gatsby-theme-contentful-gallery.git"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.14",
     "@emotion/styled": "^10.0.14",
