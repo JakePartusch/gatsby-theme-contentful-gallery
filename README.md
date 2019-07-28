@@ -18,13 +18,13 @@ contentful space import --space-id SPACE_ID --mt MANAGEMENT_TOKEN --content-file
 ### Add the plugin to your `gatsby-config`
 
 ```
-yarn add @jakepartusch/gatsby-theme-contentful-gallery
+yarn add gatsby-theme-contentful-gallery
 ```
 
 ```
   plugins: [
     {
-      resolve: "@jakepartusch/gatsby-theme-contentful-gallery",
+      resolve: "gatsby-theme-contentful-gallery",
       options: {
         contentfulSpaceId: YOU_SPACE_ID,
         contentfulAccessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
