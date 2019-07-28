@@ -1,6 +1,6 @@
 # Gatsby Theme Contentful Gallery
 
-<p><img style="height:150px" src="gallery-screenshot.png?raw=true"/></p>
+<p><img height="300" src="gallery-screenshot.png?raw=true"/></p>
 
 ## Getting Started
 
