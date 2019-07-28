@@ -1,10 +1,12 @@
 # Gatsby Theme Contentful Gallery
 
-<p><img src="gallery-screenshot.png?raw=true"/></p>
+<p><img style="height:150px" src="gallery-screenshot.png?raw=true"/></p>
 
 ## Getting Started
 
 ### Create a new Contentful Space
+
+https://www.contentful.com/faq/basics/#how-do-i-create-a-space
 
 ### Run the setup scripts
 
