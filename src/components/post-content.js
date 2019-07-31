@@ -27,7 +27,11 @@ const PostContent = ({ post }) => {
           marginTop: "0.5rem"
         })}
       >
-        {new Date(post.publishDate).toDateString()}
+        {new Date(post.publishDate)
+          .toUTCString()
+          .split(" ")
+          .splice(0, 4)
+          .join(" ")}
       </Styled.p>
       <Styled.p
         css={css({
